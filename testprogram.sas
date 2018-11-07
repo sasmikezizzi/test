@@ -138,8 +138,3 @@ run;
 data work.reset;
 reset = GITFN_RESET("/tmp/anewtest", "3a34b70191602dcadfad68b5031f072df39ee90e", "MIXED");
 run;
-
-
-
-
-
