@@ -43,3 +43,28 @@ LENGTH path $ 1024;
     rc=GITFN_STATUSFREE("/tmp/anewtest");
     put rc=;
  run;
+ 
+data _null_;
+    GITFN_IDX_ADD("/tmp/anewtest", "testprogram.sas", "new", "Program 1", "new", "testcars.sas7bdat", "new");
+run;
+
+data _null_;
+    GITFN_IDX_REMOVE("/tmp/anewtest", "testprogram.sas", "Program 1", "testcars.sas7bdat");
+run;
+
+
+data _null_;
+ GITFN_PUSH("git@github.com:sasmikezizzi/test.git", "/tmp/anewtest", "git", "", "/r/ge.unx.sas.com/vol/vol110/u11/mizizz/ssh/id_rsa.pub", "/r/ge.unx.sas.com/vol/vol110/u11/mizizz/ssh/id_rsa");
+run;
+
+data _null_;
+ GITFN_PULL("git@github.com:sasmikezizzi/test.git", "/tmp/anewtest", "git", "", "/r/ge.unx.sas.com/vol/vol110/u11/mizizz/ssh/id_rsa.pub", "/r/ge.unx.sas.com/vol/vol110/u11/mizizz/ssh/id_rsa");
+run;
+
+
+
+
+
+
+
+
