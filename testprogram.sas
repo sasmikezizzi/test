@@ -11,12 +11,17 @@ data _null_;
 run;
 
 data _null_;
+    rc = GITFN_CLONE("https://github.com/sasmikezizzi/test.git", "/tmp/httpstest");
+    put rc=;
+run;
+
+data _null_;
     n = GITFN_STATUS("/tmp/anewtest");
     put n=;
 run;
 
 data _null_;
-LENGTH path $ 1024;
+	LENGTH path $ 1024;
 	LENGTH status $ 1024;
 	LENGTH staged $ 32;
 	LENGTH bogus $ 32;
