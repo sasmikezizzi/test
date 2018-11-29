@@ -11,12 +11,17 @@ data _null_;
 run;
 
 data _null_;
+    rc = GITFN_CLONE("https://github.com/sasmikezizzi/test.git", "/tmp/httpstest");
+    put rc=;
+run;
+
+data _null_;
     n = GITFN_STATUS("/tmp/anewtest");
     put n=;
 run;
 
 data _null_;
-LENGTH path $ 1024;
+	LENGTH path $ 1024;
 	LENGTH status $ 1024;
 	LENGTH staged $ 32;
 	LENGTH bogus $ 32;
@@ -138,8 +143,3 @@ run;
 data work.reset;
 reset = GITFN_RESET("/tmp/anewtest", "3a34b70191602dcadfad68b5031f072df39ee90e", "MIXED");
 run;
-
-
-
-
-
